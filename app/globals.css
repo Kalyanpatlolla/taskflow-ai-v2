@@ -1,0 +1,111 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+    --background: 220 33% 98%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 246 89% 64%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 20% 95%;
+    --secondary-foreground: 222 30% 20%;
+    --muted: 220 20% 95%;
+    --muted-foreground: 218 11% 45%;
+    --accent: 245 100% 97%;
+    --accent-foreground: 246 70% 45%;
+    --destructive: 0 73% 56%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 17% 90%;
+    --input: 220 17% 90%;
+    --ring: 246 89% 64%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.75rem;
+  }
+  .dark {
+    color-scheme: dark;
+    --background: 224 31% 9%;
+    --foreground: 220 20% 96%;
+    --card: 224 27% 12%;
+    --card-foreground: 220 20% 96%;
+    --popover: 224 27% 12%;
+    --popover-foreground: 220 20% 96%;
+    --primary: 246 90% 70%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 223 22% 18%;
+    --secondary-foreground: 220 20% 96%;
+    --muted: 223 22% 18%;
+    --muted-foreground: 220 10% 66%;
+    --accent: 245 35% 20%;
+    --accent-foreground: 245 100% 85%;
+    --destructive: 0 62% 48%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 20% 22%;
+    --input: 222 20% 22%;
+    --ring: 246 90% 70%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    background-image: radial-gradient(ellipse at 75% -10%, rgb(101 84 245 / 5%), transparent 36%);
+  }
+}
+
+@layer utilities {
+  .dashboard-card {
+    @apply rounded-2xl border border-slate-200/80 bg-white shadow-sm shadow-slate-900/[0.03] transition-shadow duration-200 hover:shadow-md hover:shadow-slate-900/[0.05] dark:border-slate-800 dark:bg-slate-900 dark:shadow-black/10;
+  }
+
+  .dashboard-heading {
+    @apply font-semibold tracking-tight text-slate-900 dark:text-slate-100;
+  }
+
+  .dashboard-muted {
+    @apply text-slate-500 dark:text-slate-400;
+  }
+
+  .page-enter {
+    animation: page-enter 360ms ease-out both;
+  }
+}
+
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
